@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("BHxKsJHRiK-MYkEUc");  // Initialize EmailJS with your Public Key
+            emailjs.init("BHxKsJHRIk-MYkEUc");  // Initialize EmailJS with your Public Key
         })();
     </script>
     <style>
@@ -168,11 +168,13 @@
             if (message) {
                 // Send email using EmailJS
                 emailjs.send("service_zgj3qln", "template_srv0ym6", {
+                    from_name: name,  // Include the user's name
                     message: message
                 }).then(function(response) {
                     alert("Your message has been sent to Mr. Coffey.");
                     document.getElementById("message").value = '';  // Clear the message field after submission
                 }, function(error) {
+                    console.error("Error sending message:", error);  // Log error details
                     alert("Oops! There was an issue sending your message. Please try again.");
                 });
             } else {
